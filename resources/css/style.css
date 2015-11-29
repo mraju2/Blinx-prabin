@@ -680,10 +680,13 @@ blockquote {
 #home-slider .carousel-inner .item .carousel-content h2{
     margin-top: 0px;
     font-weight: 700;
-    font-size: 90px;
-    line-height: 95px;
+    font-size: 40px;
+    line-height: 45px;
     text-transform: uppercase;
     display: block;
+    color: yellow;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
 
 #home-slider .carousel-inner .item .carousel-content h3{
@@ -693,6 +696,8 @@ blockquote {
     font-size: 40px;
     line-height: 44px;
     display: block;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
 }
 
 #home-slider .carousel-inner .item .carousel-content p{
