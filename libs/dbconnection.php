@@ -1,6 +1,6 @@
 <?php
 //DB Configuration for blinx server
-$database = "blinx";
+$database = "blix";
 $host = "localhost";
 $user = "root";
 $pass = "";

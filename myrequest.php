@@ -51,23 +51,23 @@ $_pageid = 113;
                 ?>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="alert alert-success" role="alert">Scan the QR code to get the rute.</div>
+                        <div class="alert alert-success" role="alert">Scan the QR code to get the route.</div>
                     </div>
                 </div>
                 <?php
                 foreach ($__data["request"] as &$data) {
 
-                    $google_url = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" . urlencode("https://www.google.com/maps/dir/" . $data["latitude"] . "," . $data["longitude"]);
+                    $google_url = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" . urlencode("https://www.google.com/maps/dir/12.9220774,77.6807421/" . $data["latitude"] . "," . $data["longitude"]);
                     ?> 
 
                     <div class="row sr-br-div">
                         <div class="col-xs-4">
-                            <img style="width: 100%;height: 100%" class="media-object" src="<?php echo $google_url ?>" alt="Scan to get the route.">
+                            <img style="width: 100%; height: 100%;max-width: 116px;" class="media-object" src="<?php echo $google_url ?>" alt="Scan to get the route.">
                         </div>
                         <div class="col-xs-8">
                             <h4 class="media-heading"><?php echo $data["first_name"] . " " . $data["last_name"] ?></h4>
                             <p>
-                                Type of service <b>Type comes here</b> 
+                                Type of service <b><?php echo $data["Description"] ?></b> 
                                 <?php (isset($data["duration"]) ? " for " . $data["duration"] . "Hrs" : "") ?> on 
                                 <code><?php echo $data["Requesteddate"] ?></code>
                                 <?php if (isset($data["Location"])) { ?>

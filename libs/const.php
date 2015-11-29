@@ -1,5 +1,8 @@
 <?php
 
+// Turn off all error reporting
+error_reporting(0);
+
 define("URL_HOME", "index.php");
 define("URL_SEARCH", "search.php");
 define("URL_REQUEST", "request.php");
