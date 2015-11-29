@@ -56,10 +56,8 @@ $_pageid = 113;
                 </div>
                 <?php
                 foreach ($__data["request"] as &$data) {
-
                     $google_url = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" . urlencode("https://www.google.com/maps/dir/12.9220774,77.6807421/" . $data["latitude"] . "," . $data["longitude"]);
                     ?> 
-
                     <div class="row sr-br-div">
                         <div class="col-xs-4">
                             <img style="width: 100%; height: 100%;max-width: 116px;" class="media-object" src="<?php echo $google_url ?>" alt="Scan to get the route.">
@@ -79,15 +77,14 @@ $_pageid = 113;
                             </p>
                         </div>
                     </div>
-
-                    <?
-                    }
-                    ?>
-                </div>
+                    <?php
+                }
+                ?>
             </div>
-            <!-- end:tagline -->
-            <?php include_once './tags/global_header/footer.php'; ?>
-            <!-- end:copyright -->
-            <?php include_once './tags/common/scripts.php'; ?>
+        </div>
+        <!-- end:tagline -->
+        <?php include_once './tags/global_header/footer.php'; ?>
+        <!-- end:copyright -->
+        <?php include_once './tags/common/scripts.php'; ?>
     </body>
 </html>
