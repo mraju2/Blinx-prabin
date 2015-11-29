@@ -39,7 +39,7 @@ $_pageid = 112;
                                 <?php echo $data["first_name"] . " " . $data["last_name"] ?>
                             </h4>
                             <p>
-                                Type of service <b>Type comes here</b> 
+                                Type of service <b><?php echo $data["Description"] ?></b> 
                                 <?php (isset($data["duration"]) ? " for " . $data["duration"] . "Hrs" : "") ?> on 
                                 <code><?php echo $data["Requesteddate"] ?></code>
                                 <?php if (isset($data["Location"])) { ?>
