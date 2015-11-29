@@ -15,7 +15,7 @@ function run_query() {
 
     $long = $_GET["long"];
     $lat = $_GET["lat"];
-    $distanceFilter = isset($_GET["distance"]) ? $_GET["distance"] : 4;
+    $distanceFilter = isset($_GET["distance_range"]) ? $_GET["distance_range"] : 4;
 
     $conn = mysqli_connect($host, $user, $pass, $database) or die("Error " . mysqli_error($link));
     $query = "SELECT  h.Id, h.Description, u.first_name, u.last_name, u.mobile_number, u.gender, u.user_id, req.Id, req.Message,req.Address,req.Location,req.Createddate,req.Requesteddate,req.latitude,req.longitude,req.duration FROM  t_help_request req, m_user u , f_help h where req.userId = u.user_id and h.Id = req.helpId";
@@ -28,12 +28,12 @@ function run_query() {
     $where = " and req.longitude between " . $longitude_low . " and " . $longitude_high . " and req.latitude between " . $latitude_low . " and " . $latitude_high;
 	
 	// Filtering logic
-    if (isset($_GET["help"]) && $_GET["help"] != '') {
-        $where = $where . " and req.helpId in ( " . $_GET["help"] . ") ";
+    if (isset($_GET["service_type"]) && $_GET["service_type"] != '') {
+        $where = $where . " and req.helpId in ( " . $_GET["service_type"] . ") ";
     }
 
-    if (isset($_GET["help_date"]) && $_GET["help_date"] != '') {
-        $help_dates = explode(",", $_GET["help_date"]);
+    if (isset($_GET["date_range"]) && $_GET["date_range"] != '') {
+        $help_dates = explode(",", $_GET["date_range"]);
         $multipleDatesPresent = false;
         $datequery = "";
         foreach ($help_dates as $filter_date) {
@@ -74,11 +74,11 @@ function run_query() {
         $where = $where . "and  req.Requesteddate  >= STR_TO_DATE('$current_date', '%Y-%m-%d')";
     }
     //
-    if (isset($_GET["duration_low"]) && $_GET["duration_low"] != '') {
-        $where = $where . " and req.duration >= " . $_GET["duration_low"];
-    }
-    if (isset($_GET["duration_high"]) && $_GET["duration_high"] != '') {
-        $where = $where . " and req.duration <= " . $_GET["duration_high"];
+  //  if (isset($_GET["duration_low"]) && $_GET["duration_low"] != '') {
+  //      $where = $where . " and req.duration >= " . $_GET["duration_low"];
+  //  }
+    if (isset($_GET["duration_range"]) && $_GET["duration_range"] != '') {
+        $where = $where . " and req.duration <= " . $_GET["duration_range"];
     }
     if (isset($_GET["mode"]) && $_GET["mode"] != '') {
         $where = $where . " and req.mode in ( " . $_GET["help_mode"] . ") ";
